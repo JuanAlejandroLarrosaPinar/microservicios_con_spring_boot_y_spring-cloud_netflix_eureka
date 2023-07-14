@@ -19,7 +19,7 @@ public class ItemController {
 	private Logger logger = LoggerFactory.getLogger(ItemController.class);
 
 	@Autowired
-	@Qualifier(value = "serviceFeign")
+	@Qualifier(value = "serviceRestTemplate")
 	private ItemService itemService;
 	
 	@GetMapping("/listar")

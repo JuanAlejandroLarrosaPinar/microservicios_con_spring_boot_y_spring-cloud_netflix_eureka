@@ -24,7 +24,7 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> findAll() {
 		List<Producto> productos =
 				Arrays.asList(
-				clienteRest.getForObject("http://localhost:8001/listar", Producto[].class));
+				clienteRest.getForObject("http://servicio-productos/listar", Producto[].class));
 		return productos.stream().map(p->
 			new Item(p, 1)
 		).collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService{
 	public Item findById(Long id, Integer cantidad) {
 		Map<String, String> mapa = new HashMap<>();
 		mapa.put("id", id.toString());
-		Producto producto = clienteRest.getForObject("http://localhost:8001/ver/{id}",
+		Producto producto = clienteRest.getForObject("http://servicio-productos/ver/{id}",
 				Producto.class, mapa);
 		return new Item(producto, cantidad);
 	}

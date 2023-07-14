@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,11 +26,14 @@ public class ProductoController {
 	
 	private Logger logger = LoggerFactory.getLogger(ProductoController.class);
 	
+	@Value("${server.port}")
+	private String serverPort; //se inyecta dicha variable y no hace falta hacer uso del entorno de spring.
+	
 	@GetMapping("/listar")
 	public List<Producto> listar(){
 		List<Producto> lista = productoService.findAll()
 			.stream().map(p->{
-				p.setPort(env.getProperty("server.port"));
+				p.setPort(serverPort);
 				return p;
 			}).collect(Collectors.toList());
 		logger.info("hola");
