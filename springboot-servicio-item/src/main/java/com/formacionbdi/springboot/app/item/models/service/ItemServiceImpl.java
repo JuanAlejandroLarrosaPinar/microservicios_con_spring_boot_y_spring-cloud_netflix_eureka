@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class ItemServiceImpl implements ItemService{
 				clienteRest.getForObject("http://localhost:8001/listar", Producto[].class));
 		return productos.stream().map(p->
 			new Item(p, 1)
-		).toList();
+		).collect(Collectors.toList());
 	}
 
 	@Override

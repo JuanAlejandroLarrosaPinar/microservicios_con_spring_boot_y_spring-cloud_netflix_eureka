@@ -11,7 +11,8 @@ import com.formacionbdi.springboot.app.item.models.Producto;
 /*
  * configuración para el cliente
  */ 
-@FeignClient(name = "servicio-productos", url = "localhost:8001") 
+//@FeignClient(name = "servicio-productos", url = "localhost:8001")
+@FeignClient(name = "servicio-productos")
 public interface ProductoClienteRest {
 
 	@GetMapping(path = "/listar")

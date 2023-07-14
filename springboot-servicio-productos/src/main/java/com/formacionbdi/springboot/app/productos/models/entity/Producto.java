@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,4 +32,7 @@ public class Producto implements Serializable{
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
+	
+	@Transient
+	private String port;
 }

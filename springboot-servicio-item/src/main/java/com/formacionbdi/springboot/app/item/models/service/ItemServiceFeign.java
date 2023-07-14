@@ -1,6 +1,7 @@
 package com.formacionbdi.springboot.app.item.models.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class ItemServiceFeign implements ItemService{
 	
 		return clienteFeign.listar().stream().map(p->
 			new Item(p, 1)
-		).toList();
+		).collect(Collectors.toList());
 	}
 
 	@Override

@@ -1,10 +1,12 @@
 package com.formacionbdi.springboot.app.productos.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,13 +20,19 @@ public class ProductoController {
 	@Autowired
 	private IProductoService productoService;
 	
+	@Autowired
+	private Environment env;
+	
 	private Logger logger = LoggerFactory.getLogger(ProductoController.class);
 	
 	@GetMapping("/listar")
 	public List<Producto> listar(){
-		logger.info("Antes de consultar " + System.currentTimeMillis());
-		List<Producto> lista = productoService.findAll();
-		logger.info("Despues de consultar "+ System.currentTimeMillis());
+		List<Producto> lista = productoService.findAll()
+			.stream().map(p->{
+				p.setPort(env.getProperty("server.port"));
+				return p;
+			}).collect(Collectors.toList());
+		logger.info("hola");
 		return lista;
 	}
 	
