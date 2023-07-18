@@ -48,6 +48,12 @@ public class ProductoController {
 		if(!ok) {
 			throw new RuntimeException("No se pudo cargar el producto");
 		}
+		try {
+			Thread.sleep(15000L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return productoService.findById(id);
 	}
 	

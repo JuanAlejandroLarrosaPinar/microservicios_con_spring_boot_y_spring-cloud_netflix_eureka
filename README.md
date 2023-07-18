@@ -10,6 +10,11 @@
 - Creando servidor eureka y conectando los dos microservicios anteriores al mismo.
 - Puerto dinámico para el microservicio de productos.
 - Hystrix: tolerancia a fallos: permite enviar el flujo de código a otro sitio cuando se produce un error en el micro de productos.
+  Por defecto, cuando un micro llama a otro, si ese otro tarda en responder más de x tiempo, se produce un error de timeout. Yo lo he probado y no me ha funcionado.
+  Lo que se hace para solventar eso es añadir las properties para ampliar ese timeout de llamada de un microservicio a otro microservicio.
+    hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
+    ribbon.ConnectTimeout: 3000
+    ribbon.ReadTimeout: 10000
 
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
