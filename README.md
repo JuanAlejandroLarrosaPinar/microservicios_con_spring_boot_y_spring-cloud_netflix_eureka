@@ -15,6 +15,7 @@
     hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 20000
     ribbon.ConnectTimeout: 3000
     ribbon.ReadTimeout: 10000
+- Zuul server: es un servidor para gestionar el api-gateway. 
 
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.

@@ -33,7 +33,8 @@ public class ProductoController {
 	public List<Producto> listar(){
 		List<Producto> lista = productoService.findAll()
 			.stream().map(p->{
-				p.setPort(serverPort);
+				//p.setPort(serverPort);
+				p.setPort(env.getProperty("server.port"));
 				return p;
 			}).collect(Collectors.toList());
 		logger.info("hola");
@@ -49,7 +50,8 @@ public class ProductoController {
 			throw new RuntimeException("No se pudo cargar el producto");
 		}
 		try {
-			Thread.sleep(15000L);
+			//Lo dejamos en 500ms. Con zuul sí que da el error de timeout cuando llama de un microservicio a otro.
+			Thread.sleep(0L);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
