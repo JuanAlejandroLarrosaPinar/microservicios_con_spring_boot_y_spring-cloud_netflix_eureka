@@ -42,6 +42,12 @@ public class ProductoController {
 	
 	@GetMapping("/ver/{id}")
 	public Producto detalle( @PathVariable Long id) {
+		
+		boolean ok = true;
+		//la variable ok se añadió para probar el funcionamiento hystrix. tolerancia a fallos.
+		if(!ok) {
+			throw new RuntimeException("No se pudo cargar el producto");
+		}
 		return productoService.findById(id);
 	}
 	

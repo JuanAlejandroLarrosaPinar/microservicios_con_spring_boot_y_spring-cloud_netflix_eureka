@@ -9,6 +9,7 @@
 - Balanceo de carga con Riboon con RestTemplate.
 - Creando servidor eureka y conectando los dos microservicios anteriores al mismo.
 - Puerto dinámico para el microservicio de productos.
+- Hystrix: tolerancia a fallos: permite enviar el flujo de código a otro sitio cuando se produce un error en el micro de productos.
 
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
@@ -16,4 +17,4 @@
 - Por eso en este enfoque se cambia de versión de spring boot y de spring cloud.
 - Zuul no es compatible con la versión 2.4 de spring boot y futuras.
 - Ribbon utiliza round robbin
-
+- Hystrix sólo es compatible con versiones anteriores a 2.4. A partir de ahí ya se usa Resilience4j
