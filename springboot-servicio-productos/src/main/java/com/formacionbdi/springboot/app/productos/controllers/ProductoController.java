@@ -51,7 +51,7 @@ public class ProductoController {
 		}
 		try {
 			//Lo dejamos en 500ms. Con zuul sí que da el error de timeout cuando llama de un microservicio a otro.
-			Thread.sleep(0L);
+			Thread.sleep(5000L);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
