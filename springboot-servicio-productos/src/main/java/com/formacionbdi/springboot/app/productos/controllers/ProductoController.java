@@ -34,7 +34,7 @@ public class ProductoController {
 		List<Producto> lista = productoService.findAll()
 			.stream().map(p->{
 				//p.setPort(serverPort);
-				p.setPort(env.getProperty("server.port"));
+				p.setPort(env.getProperty("local.server.port"));
 				return p;
 			}).collect(Collectors.toList());
 		logger.info("hola");

@@ -17,6 +17,7 @@
     ribbon.ReadTimeout: 10000
 - Zuul server: es un servidor para gestionar el api-gateway. 
     - Se implementan filtros pre y post para controlar los eventos de antes y después de lanzar la petición http.
+- Spring cloud API Gateway: sustituye a Zuul server para versiones más modernas de springboot. En este caso se utiliza la versión 2.5.3 de springboot, la cual es compatible con la versión 2020.0.3 de spring cloud
 
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
