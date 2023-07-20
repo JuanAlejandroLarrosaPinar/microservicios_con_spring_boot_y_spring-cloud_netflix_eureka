@@ -22,3 +22,9 @@ spring:
         - Path=/api/item/**
         filters:
         - StripPrefix=2
+        #Filtros personalizados de spring que no hace falta programarlos
+        - AddRequestHeader=token-request, 1234567890
+        - AddResponseHeader=token-response, 0987654321
+        - SetResponseHeader=Content-Type, text/plain
+        - AddRequestParameter=nombre, alex
+        

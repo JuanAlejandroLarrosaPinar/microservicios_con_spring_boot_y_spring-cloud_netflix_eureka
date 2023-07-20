@@ -37,7 +37,6 @@ public class ProductoController {
 				p.setPort(env.getProperty("local.server.port"));
 				return p;
 			}).collect(Collectors.toList());
-		logger.info("hola");
 		return lista;
 	}
 	

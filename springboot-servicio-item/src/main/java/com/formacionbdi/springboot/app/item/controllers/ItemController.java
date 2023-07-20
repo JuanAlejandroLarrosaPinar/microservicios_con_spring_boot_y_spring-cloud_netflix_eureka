@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.formacionbdi.springboot.app.item.models.Item;
@@ -25,8 +27,10 @@ public class ItemController {
 	private ItemService itemService;
 	
 	@GetMapping("/listar")
-	public List<Item> listar(){
-		logger.info("listando productos.");
+	public List<Item> listar(@RequestParam(name="nombre") String nombre, @RequestHeader(name="token-request") String tokenRequest){
+		logger.info("nombre: {}", nombre);
+		logger.info("tokenRequest: {}", tokenRequest);
+		
 		return itemService.findAll();
 	}
 	
