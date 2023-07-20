@@ -27,7 +27,7 @@ public class ItemController {
 	private ItemService itemService;
 	
 	@GetMapping("/listar")
-	public List<Item> listar(@RequestParam(name="nombre") String nombre, @RequestHeader(name="token-request") String tokenRequest){
+	public List<Item> listar(@RequestParam(name="nombre", required = false) String nombre, @RequestHeader(name="token-request", required = false) String tokenRequest){
 		logger.info("nombre: {}", nombre);
 		logger.info("tokenRequest: {}", tokenRequest);
 		

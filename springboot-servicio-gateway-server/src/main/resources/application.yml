@@ -6,6 +6,14 @@ spring:
         uri: lb://servicio-productos
         predicates:
         - Path=/api/productos/**
+        #Requisitos para la petición al servicio productos
+        #- Header= token, \d+
+        #- Header= Content-Type, application/json
+        #- Method= GET, POST
+        #Si no ponemos el valor, permite cualquier valor para el parámetro "color"
+        # Query=color
+        #- Query=color, verde
+        #- Cookie=color, azul
         filters:
         #porque la ruta está compuesta por dos segementos, api y productos.
         #Si fuese "/productos" pondríamos sólo 1
