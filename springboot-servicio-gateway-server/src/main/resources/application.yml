@@ -9,7 +9,13 @@ spring:
         filters:
         #porque la ruta está compuesta por dos segementos, api y productos.
         #Si fuese "/productos" pondríamos sólo 1
-        - StripPrefix=2
+          - StripPrefix=2
+          #EjemploGatewayFilterFactory
+          - name: Ejemplo
+            args:
+              mensaje: Hola, mi mensaje personalizado
+              cookieNombre: usuario
+              cookieValor: JuanAlejandro 
       - id: servicio-item
         uri: lb://servicio-item
         predicates:
