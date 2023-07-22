@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //Al tener eureka se puede quitar
 //@RibbonClient(value="servicio-productos")
 @EnableEurekaClient
-@EnableCircuitBreaker
+//@EnableCircuitBreaker //lo comentamos porque vamos a utilizar resilience4j
 public class SpringbootServicioItemApplication {
 
 	public static void main(String[] args) {

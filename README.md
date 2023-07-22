@@ -20,6 +20,26 @@
   - Filtros pre y post con GlobalFilter y con AbstractGatewayFilterFactory (modificando en ambos casos la request y la response añadiendo headers y cookies).
   - Filtros personalizados de spring que no hace falta programarlos
   - Predicados: condiciones que tienen que cumplir las peticiones para que el cliente las encuentre como tal.
+- Resilience: sustituye a hystrix. Si se produce una excepción en un servicio llamado, el error se va propagando a los servicios que lo llaman. Hay un umbral de fallos. 
+  - Hay 3 estados:
+    - Cerrado: inicial. Si hay x errores, entonces se abre el circuitbreaker.
+    - Abierto: se han producido muchos errores y se abre el cortocircuito
+    - Semiabierto: se realizan peticiones de un micro a otro para saber si ya está ok.
+  - Configuraciones:
+    - slidingWindowSize(100): por defecto son 100. De cada cien...se establece un porcentaje falla. Si el porcentaje es mayor que los criterios, se abre el  cortocircuito.
+    - failureRateThreshold (50): de cada 100 peticiones, si 50 fallan, se abre el cortocircuito.
+    - waitDurationInOpenState (60000 ms): tiempo que permanece el cortocircuito abierto.
+    - permittedNumberOfCallsInHalfOpenState(10): hará 10 peticiones de prueba en el caso de que el estado del cortocircuito sea semiabierto.
+    - slowCallRateThreshold (100): si de 100 peticiones, las 100 son lentas, se abre el cortocircuito
+    - slowCallDurationThreshold (60000 ms): esta propiedad es paara considerar que una llamada es lenta.
+  - Con la configuración por defecto lo que hace es:
+    - Si hacemos 55 peticiones con error y 45 bien, al completar el ciclo de 100, al ejecutar la 101 pasa por el metodo alternativo (como si estuviese fallando). Esto indica que se ha abierto el cortocircuito 
+    - Tras un minuto ya no se trata de 100 peticiones, sino de 10. Si de esas 10 fallan 6, se vuelve a abrir.
+    - Y así constantemente.
+  
+
+    
+  
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer
