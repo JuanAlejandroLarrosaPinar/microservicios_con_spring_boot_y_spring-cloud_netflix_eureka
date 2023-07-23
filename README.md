@@ -39,6 +39,7 @@
 - Circuit breaker va por un lado y TimeLimitter va por otro (aunque ambos se pueden combinar):
   - Circuit breaker se encarga de gestionar el hecho de que si hay más llamadas erroneas de lo normal, abra el cortocircuito y no permita más llamadas hasta pasado x tiempo
   - Timelimitter: sólo gestiona TimeOut.
+-Se puede implementar CircuitBreaker y Timelimitter en el servicio-gateway, para no ir haciéndolo servicio por servicio. Aunque a mi sólo me ha funcionado la parte de timelimitter y no la de circuitbreacker (el fallbackUri no lo hace correctamente).  
   
 
     
