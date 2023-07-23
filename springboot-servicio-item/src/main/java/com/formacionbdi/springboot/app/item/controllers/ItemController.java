@@ -1,6 +1,7 @@
 package com.formacionbdi.springboot.app.item.controllers;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.formacionbdi.springboot.app.item.models.Item;
 import com.formacionbdi.springboot.app.item.models.Producto;
 import com.formacionbdi.springboot.app.item.models.service.ItemService;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 //import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;//lo comentamos porque ya no vamos a utilizar hystrix, sino resilience4j
 
 
@@ -52,6 +56,21 @@ public class ItemController {
 		);
 	}
 	
+	@CircuitBreaker(name = "items", fallbackMethod = "metodoAlternativo") //hace la asociación a través del fichero application.yml
+	@GetMapping("/ver2/{id}/cantidad/{cantidad}")
+	public Item detalle2(@PathVariable Long id, @PathVariable Integer cantidad) {
+		return itemService.findById(id, cantidad);
+	}
+	
+	@CircuitBreaker(name = "items") //hace la asociación a través del fichero application.yml
+	@TimeLimiter(name = "items", fallbackMethod = "metodoAlternativo2")
+	@GetMapping("/ver3/{id}/cantidad/{cantidad}")
+	public CompletableFuture<Item> detalle3(@PathVariable Long id, @PathVariable Integer cantidad) {
+		//Estamos haciendo una llamada que tiene delay. No podemos calcular cuánto tiempo tarda
+		//Utilizamos una clase llamada CompletableFuture y es para controlar llamadas asíncronas.
+		return CompletableFuture.supplyAsync(()->itemService.findById(id, cantidad)) ;
+	}
+
 	public Item metodoAlternativo(@PathVariable Long id, @PathVariable Integer cantidad, Throwable e) {
 		logger.error(e.getMessage());
 		Item item = new Item();
@@ -63,5 +82,18 @@ public class ItemController {
 		producto.setPrecio(500.0);
 		item.setProducto(producto);
 		return item;
+	}
+	
+	public CompletableFuture<Item> metodoAlternativo2(@PathVariable Long id, @PathVariable Integer cantidad, Throwable e) {
+		logger.error(e.getMessage());
+		Item item = new Item();
+		item.setCantidad(cantidad);
+		
+		Producto producto = new Producto();
+		producto.setId(id);
+		producto.setNombre("Camara Sony 2");
+		producto.setPrecio(510.0);
+		item.setProducto(producto);
+		return CompletableFuture.supplyAsync(()->item);
 	}
 }
