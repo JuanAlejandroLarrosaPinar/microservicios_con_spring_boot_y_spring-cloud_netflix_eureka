@@ -62,8 +62,8 @@ public class ItemController {
 		return itemService.findById(id, cantidad);
 	}
 	
-	@CircuitBreaker(name = "items") //hace la asociación a través del fichero application.yml
-	@TimeLimiter(name = "items", fallbackMethod = "metodoAlternativo2")
+	@CircuitBreaker(name = "items", fallbackMethod = "metodoAlternativo2") //hace la asociación a través del fichero application.yml
+	@TimeLimiter(name = "items"/*, fallbackMethod = "metodoAlternativo2"*/)
 	@GetMapping("/ver3/{id}/cantidad/{cantidad}")
 	public CompletableFuture<Item> detalle3(@PathVariable Long id, @PathVariable Integer cantidad) {
 		//Estamos haciendo una llamada que tiene delay. No podemos calcular cuánto tiempo tarda

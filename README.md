@@ -36,6 +36,9 @@
     - Si hacemos 55 peticiones con error y 45 bien, al completar el ciclo de 100, al ejecutar la 101 pasa por el metodo alternativo (como si estuviese fallando). Esto indica que se ha abierto el cortocircuito 
     - Tras un minuto ya no se trata de 100 peticiones, sino de 10. Si de esas 10 fallan 6, se vuelve a abrir.
     - Y así constantemente.
+- Circuit breaker va por un lado y TimeLimitter va por otro (aunque ambos se pueden combinar):
+  - Circuit breaker se encarga de gestionar el hecho de que si hay más llamadas erroneas de lo normal, abra el cortocircuito y no permita más llamadas hasta pasado x tiempo
+  - Timelimitter: sólo gestiona TimeOut.
   
 
     
