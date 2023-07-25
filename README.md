@@ -50,7 +50,10 @@
   - Se pueden crear ficheros del tipo servicio-item-dev.properties o servicio-item-prod.properties para luego establecerse en la propiedad spring.profiles.active el perfil (dev o prod)
   - Se pueden modificar properties en tiempo real con @RefreshScope en el controlador, pero hay que inyectar la dependencia en el pom del servicio cuyo controlador es el que se le ha metido la anotación y una vez que modificamos la propiedad, hay que hacer el commit y luego llamar a localhost:8005/actuator/refresh pero la petición tiene que ser de tipo POST. MUY IMPORTANTE.
   - La carpeta config se puede subir a github y habría que modificar la property spring.cloud.config.server.git.uri (que es la que indica dónde está la configuración de nuestro servidor spring) estableciendo https://github.com/nombre_usuario/nombre_repositorio.git
-  
+- JWT:
+  - Se divide en 3 partes separadas por .: header (algoritmo utilizado y tipo), payload (datos del usuario) y parte de verificación de firma.
+  - Con esta instrucción window.atob('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.fwNYPn7BLNzzRTDhEecG6LZ5xkTF8Zj0u8hh_0bzXtk'.split('.')[1]); podemos revertir el payload de un token.
+- El API oAuth2 trabaja con JWT
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer
