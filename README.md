@@ -40,7 +40,7 @@
   - Circuit breaker se encarga de gestionar el hecho de que si hay más llamadas erroneas de lo normal, abra el cortocircuito y no permita más llamadas hasta pasado x tiempo
   - Timelimitter: sólo gestiona TimeOut.
 -Se puede implementar CircuitBreaker y Timelimitter en el servicio-gateway, para no ir haciéndolo servicio por servicio. Aunque a mi sólo me ha funcionado la parte de timelimitter y no la de circuitbreacker (el fallbackUri no lo hace correctamente).  
-
+- Con la anotación @RepositoryRestResource en el repository, se crea un conjunto de endpoints necesarios para gestionar el CRUD del Dao en el que se ha establecido dicha anotación.
 - Config server:
   - Se crea un proyecto nuevo
   - Se indica cuál es la carpeta de configuración donde estarán todos los properties donde cada property tendrá nombre "nombre_instancia.properties".

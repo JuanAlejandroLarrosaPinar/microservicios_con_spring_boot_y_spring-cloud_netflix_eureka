@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="roles")
 @Getter
 @Setter
 public class Role implements Serializable{
