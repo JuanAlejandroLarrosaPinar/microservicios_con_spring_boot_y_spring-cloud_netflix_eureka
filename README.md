@@ -54,6 +54,13 @@
   - Se divide en 3 partes separadas por .: header (algoritmo utilizado y tipo), payload (datos del usuario) y parte de verificación de firma.
   - Con esta instrucción window.atob('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.fwNYPn7BLNzzRTDhEecG6LZ5xkTF8Zj0u8hh_0bzXtk'.split('.')[1]); podemos revertir el payload de un token.
 - El API oAuth2 trabaja con JWT
+- Para configurar spring security hay que:
+  - Crear el repositorio que acceda a la tabla de usuarios
+  - Crear un servicio @Service que implemente la interfaz UserDetailsService
+  - Registrar en el authentication manager ese servicio a través de la clase SpringSecurityConfig
+  - Registrar la configuración en la clase AuthorizationServerConfig () haciendo uso de los 2 beans creados en SpringSecurityConfig:
+    - BCryptPasswordEncoder
+    - authenticationManager
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer

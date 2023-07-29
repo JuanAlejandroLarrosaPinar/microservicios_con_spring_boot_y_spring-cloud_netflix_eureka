@@ -16,3 +16,5 @@ cd ../springboot-servicio-zuul-server;
 mvn clean compile;
 cd ../springboot-servicio-gateway-server;
 mvn clean compile;
+cd ../springboot-servicio-oauth;
+mvn clean compile;
