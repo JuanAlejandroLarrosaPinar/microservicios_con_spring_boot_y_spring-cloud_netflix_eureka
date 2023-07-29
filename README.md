@@ -61,6 +61,16 @@
   - Registrar la configuración en la clase AuthorizationServerConfig () haciendo uso de los 2 beans creados en SpringSecurityConfig:
     - BCryptPasswordEncoder
     - authenticationManager
+  - Para lanzar la petición desde postman tenemos que establecer:
+    - URL: localhost:8090/api/security/oauth/token (de tipo POST)
+    - Pestaña Authorization: 
+      - Type: Basic Auth
+      - Username: frontendapp (esto se establece en la clase AuthorizationServerConfig (línea en la que se llama al método withClient), que hereda de AuthorizationServerConfigurerAdapter)
+      - Password: 12345 (también se establece ahí, en línea que llama al método secret())
+    - Body (en radiobutton x-www-form-urlencoded), se añaden pares key-value con las siguientes características:
+      - username: nombre del usuario (username se corresponde al atributo username de la clase Usuario).
+      - password: contraseña del usuario (password se corresponde al atributo password de la clase Usuario).
+      - grant_type: password
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer
