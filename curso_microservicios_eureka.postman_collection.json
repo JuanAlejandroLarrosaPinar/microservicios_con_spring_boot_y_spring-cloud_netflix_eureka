@@ -1,0 +1,745 @@
+{
+	"info": {
+		"_postman_id": "bab22481-6a30-4aa9-9a5f-4e412bcb918a",
+		"name": "curso_microservicios_eureka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Productos-listar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/productos/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"productos",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos-ver",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/api/productos/ver/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"productos",
+						"ver",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-listar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/api/item/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver/1/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver",
+						"1",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver2/1/cantidad/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver2",
+						"1",
+						"cantidad",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver3/1/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver3",
+						"1",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver-error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver/10/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver",
+						"10",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver2-error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver2/10/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver2",
+						"10",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver3-error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver3/10/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver3",
+						"10",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver-error-timeout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver/7/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver",
+						"7",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver2-error-timeout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver2/7/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver2",
+						"7",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-ver3-error-timeout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/ver3/7/cantidad/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"ver3",
+						"7",
+						"cantidad",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Config default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/servicio-item/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"servicio-item",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-obtener-config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/item/obtener-config",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"obtener-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/actuator/refresh",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos-crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Samsung galaxy\",\n    \"precio\": 245,\n    \"createAt\" : \"2019-06-13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/productos/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"productos",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos-modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"modificado\",\n    \"precio\":1234\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/productos/editar/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"productos",
+						"editar",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos-eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/productos/eliminar/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"productos",
+						"eliminar",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"prueba item\",\n    \"precio\": 1234,\n    \"createAt\": \"2019-06-14\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/item/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"prueba modi\",\n    \"precio\": 1234,\n    \"createAt\": \"2019-06-14\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/item/editar/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"editar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"prueba modi\",\n    \"precio\": 1234,\n    \"createAt\": \"2019-06-14\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/item/eliminar/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"item",
+						"eliminar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios-listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/usuarios/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios-buscar-username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/usuarios/usuarios/search/buscar-username?nombre=alejandro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios",
+						"search",
+						"buscar-username"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "alejandro"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios-crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n                \"username\": \"nuevo\",\n                \"password\": \"passwd\",\n                \"enabled\": true,\n                \"nombre\": \"nuevo\",\n                \"apellido\": \"Larrosa\",\n                \"email\": \"mod@gmail.com\",\n                \"roles\": [\n                    {\n                        \"id\": \"1\", \"nombre\" : \"ROLE_ADMIN\"\n                    }\n                ]\n                \n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/usuarios/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"usuarios",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generar jwt",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "frontendapp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "alejandro",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/security/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"security",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
