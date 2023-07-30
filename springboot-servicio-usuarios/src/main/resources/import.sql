@@ -6,5 +6,5 @@ INSERT INTO roles (nombre) values ('ROLE_USER');
 
 
 INSERT INTO usuarios_to_roles (usuario_id, role_id) values (1,1);
+INSERT INTO usuarios_to_roles (usuario_id, role_id) values (1,2);
 INSERT INTO usuarios_to_roles (usuario_id, role_id) values (2,2);
-INSERT INTO usuarios_to_roles (usuario_id, role_id) values (2,1);
