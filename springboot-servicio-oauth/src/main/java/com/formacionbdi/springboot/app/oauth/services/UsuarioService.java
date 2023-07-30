@@ -13,13 +13,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
 import com.formacionbdi.springboot.app.commons.usuarios.models.entity.Usuario;
 import com.formacionbdi.springboot.app.oauth.clients.UsuarioFeignClient;
 
 @Service
-public class UsuarioService implements UserDetailsService{
+public class UsuarioService implements IUsuarioService, UserDetailsService{
 	
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
@@ -44,6 +43,11 @@ public class UsuarioService implements UserDetailsService{
 		log.info("Usuario autenticado: "+username);
 		
 		return new User(usuario.getUsername(), usuario.getPassword(), authorities);
+	}
+
+	@Override
+	public Usuario findByUsername(String username) {
+		return cliente.buscarPorNombre(username);
 	}
 
 }
