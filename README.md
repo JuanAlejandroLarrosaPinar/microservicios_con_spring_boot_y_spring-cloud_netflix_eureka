@@ -71,6 +71,7 @@
       - username: nombre del usuario (username se corresponde al atributo username de la clase Usuario).
       - password: contraseña del usuario (password se corresponde al atributo password de la clase Usuario).
       - grant_type: password
+- Para refrescar un token (el refreshtoken), hay que hacer una petición a la ruta localhost:8090/api/security/oauth/token pero enviando en el body en el grant type: "refresh_token" y en otro parámetro nuevo llamado "refresh_token" el refresh_token que nos dio la primera petición a este método.
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer

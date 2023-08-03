@@ -51,6 +51,8 @@ public class Usuario implements Serializable{
 	
 	private List<Role> roles;
 	
+	private Integer intentos;
+	
 	private static final long serialVersionUID = 4002221912401133094L;
 	
 

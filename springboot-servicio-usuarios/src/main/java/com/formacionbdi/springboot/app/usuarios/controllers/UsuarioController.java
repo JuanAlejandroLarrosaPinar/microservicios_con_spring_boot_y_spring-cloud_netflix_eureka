@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +26,13 @@ public class UsuarioController {
 			return null;
 		}
 		return list.get(0);
+	}
+	
+	@PutMapping("/habilitarUsuario/{id}")
+	public Usuario habilitarUsuario(@PathVariable Long id) {
+		Usuario usuario = usuarioDao.findById(id).get();
+		usuario.setEnabled(true);
+		return usuarioDao.save(usuario);
+		
 	}
 }

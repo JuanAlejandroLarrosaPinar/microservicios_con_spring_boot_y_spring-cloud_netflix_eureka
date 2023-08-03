@@ -42,12 +42,18 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 		
 		log.info("Usuario autenticado: "+username);
 		
-		return new User(usuario.getUsername(), usuario.getPassword(), authorities);
+		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true,
+				authorities);
 	}
 
 	@Override
 	public Usuario findByUsername(String username) {
 		return cliente.buscarPorNombre(username);
+	}
+
+	@Override
+	public Usuario update(Usuario usuario, Long id) {
+		return cliente.update(usuario, id);
 	}
 
 }
