@@ -207,6 +207,16 @@
 				{
 					"name": "Item-ver",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -222,7 +232,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8090/api/item/ver/8/cantidad/9",
+							"raw": "http://localhost:8090/api/item/ver/1/cantidad/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -232,7 +242,7 @@
 								"api",
 								"item",
 								"ver",
-								"8",
+								"1",
 								"cantidad",
 								"9"
 							]
@@ -582,7 +592,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhbGVqYW5kcm8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJMYXJyb3NhIiwiY29ycmVvIjoiYWxlamFuZHJvQGdtYWlsLmNvbSIsImV4cCI6MTY5MDc0ODU5NSwibm9tYnJlIjoiQWxlamFuZHJvIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJqdGkiOiI2YWM4YzUwMi05MDFjLTQ1YTEtYTBlMi00NDBiN2ZjMjQ3ODgiLCJjbGllbnRfaWQiOiJmcm9udGVuZGFwcCJ9.zwMbSYWXKs4DCGHewg6aV9b6eTPgySbI66pKDS-yMDQ",
+									"value": "{{TOKEN}}",
 									"type": "string"
 								}
 							]
@@ -590,7 +600,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8090/api/usuarios/usuarios",
+							"raw": "http://localhost:8090/api/usuarios/usuarios/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -599,7 +609,8 @@
 							"path": [
 								"api",
 								"usuarios",
-								"usuarios"
+								"usuarios",
+								"3"
 							]
 						}
 					},
@@ -613,7 +624,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhbGVqYW5kcm8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJMYXJyb3NhIiwiY29ycmVvIjoiYWxlamFuZHJvQGdtYWlsLmNvbSIsImV4cCI6MTY5MDczOTQ2NSwibm9tYnJlIjoiQWxlamFuZHJvIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJqdGkiOiIzODgzNWQwZi0xODQ3LTQzNDQtYjE1NS03NThjNjU0NjU2NzciLCJjbGllbnRfaWQiOiJmcm9udGVuZGFwcCJ9.6rpkBjfKzNs_ztpAHWiFREClPmjpNl57_jdZ2Es72ss",
+									"value": "{{TOKEN}}",
 									"type": "string"
 								}
 							]
@@ -647,19 +658,31 @@
 				},
 				{
 					"name": "Usuarios-buscar-username",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJqdWFuIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiUGluYXIiLCJjb3JyZW8iOiJqdWFuQGdtYWlsLmNvbSIsImV4cCI6MTY5MDczOTQxMCwibm9tYnJlIjoiSnVhbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiI4NmU3MDNiZS1jYTAxLTRiZTctYWRkOC03OTNkYjA5MGJhNzQiLCJjbGllbnRfaWQiOiJmcm9udGVuZGFwcCJ9.OgRXg6YP3-ucToSI5_21bovO1-z2cd4ifPpt-_bxjqY",
+									"value": "{{TOKEN}}",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8090/api/usuarios/usuarios/search/buscar-username?nombre=juan",
 							"protocol": "http",
@@ -679,6 +702,38 @@
 									"key": "nombre",
 									"value": "juan"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios-habilitar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/api/usuarios/habilitarUsuario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"api",
+								"usuarios",
+								"habilitarUsuario",
+								"2"
 							]
 						}
 					},
@@ -712,14 +767,24 @@
 				{
 					"name": "Actuator",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "localhost:8005/actuator/refresh",
+							"raw": "localhost:9100/actuator/refresh",
 							"host": [
 								"localhost"
 							],
-							"port": "8005",
+							"port": "9100",
 							"path": [
 								"actuator",
 								"refresh"
@@ -758,7 +823,7 @@
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "alejandro",
+									"value": "juan",
 									"type": "default"
 								},
 								{
@@ -770,6 +835,18 @@
 									"key": "grant_type",
 									"value": "password",
 									"type": "default"
+								},
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJqdWFuIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiUGluYXIiLCJjb3JyZW8iOiJqdWFuQGdtYWlsLmNvbSIsImF0aSI6ImU0OTI3ODdmLTE3MmEtNGU0NC04NDM0LTc0MjYwYTRkMGRiNiIsImV4cCI6MTY5MDkxMDE5OCwibm9tYnJlIjoiSnVhbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJmYjcwZWJhNi01ZWI0LTQ1NTgtOTRmMC05ZmZhZTYzNGZlOTciLCJjbGllbnRfaWQiOiJmcm9udGVuZGFwcCJ9.-JahVJdhyhKuH5FFH_ZhO1w1HWxEQG8sUYB-qI6xiAY",
+									"type": "default",
+									"disabled": true
 								}
 							],
 							"options": {
