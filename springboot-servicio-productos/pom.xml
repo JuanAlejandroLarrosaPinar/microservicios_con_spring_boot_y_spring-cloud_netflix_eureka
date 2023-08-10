@@ -62,6 +62,18 @@
 			<artifactId>springboot-servicio-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Para que funcione correctamente el cliente del servidor de configuraciones -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<version>4.0.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
