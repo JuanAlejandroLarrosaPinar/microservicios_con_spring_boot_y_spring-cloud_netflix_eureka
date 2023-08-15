@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import com.formacionbdi.springboot.app.commons.usuarios.models.entity.Usuario;
 import com.formacionbdi.springboot.app.oauth.clients.UsuarioFeignClient;
 
+import brave.Tracer;
+
 @Service
 public class UsuarioService implements IUsuarioService, UserDetailsService{
 	
@@ -24,6 +26,9 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 	
 	@Autowired
 	private UsuarioFeignClient cliente;
+	
+	@Autowired
+	private Tracer tracer;
 
 	//se encarga de autenticar.
 	@Override
@@ -42,6 +47,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 		
 		log.info("Usuario autenticado: "+username);
 		
+		tracer.currentSpan().tag("usuario: ", username);
 		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true,
 				authorities);
 	}

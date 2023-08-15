@@ -73,6 +73,9 @@
       - grant_type: password
   - Para hacer peticiones al back incluyendo el token hay que añadir en autorización la opción bearer token.
 - Para refrescar un token (el refreshtoken), hay que hacer una petición a la ruta localhost:8090/api/security/oauth/token pero enviando en el body en el grant type: "refresh_token" y en otro parámetro nuevo llamado "refresh_token" el refresh_token que nos dio la primera petición a este método.
+- Sleuth es para marcar las trazas de lo que va haciendo una petición a lo largo de los microservicios a los que va llamando. Se puede complementar con zipkin para buscar las trazas.
+- Rabbitmq se levanta con "CONF_ENV_FILE="/opt/homebrew/etc/rabbitmq/rabbitmq-env.conf" /opt/homebrew/opt/rabbitmq/sbin/rabbitmq-server
+". La parte de Rabbitmq no funciona BIEN ya que no se registran los microservicios en rabbitmq.
 ### 18 Notas:
 - Desde la versión 2.4 de spring boot en adelante no es compatible con Ribbon.
 - Eureka utiliza spring-cloud load balancer

@@ -600,7 +600,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8090/api/usuarios/usuarios/3",
+							"raw": "http://localhost:8090/api/usuarios/usuarios/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -610,7 +610,7 @@
 								"api",
 								"usuarios",
 								"usuarios",
-								"3"
+								"2"
 							]
 						}
 					},
